@@ -8,7 +8,7 @@ const collectEmployees = function() {// Get user input to create and return an a
    const getEmployee = function(){
   let getFirst = prompt('Enter First Name');
   let getLast = prompt("Enter Last Name");
-  let getSal = prompt("Enter Salary")
+  let getSal = parseInt(prompt("Enter Salary"))
    if (getFirst !== "" && getLast !== "" && isNaN(getSal) === false){
     let employee ={
       firstName:getFirst,
@@ -27,7 +27,18 @@ return employeesArray}
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) { // Calculate and display average salary 
-  
+  const salArray = []
+  for (let i = 0; i < employeesArray.length ; i++){
+    const grimbus = employeesArray[i].salary;
+    salArray.push(grimbus)
+  }
+  let sum = 0;
+  for(let i = 0; i<salArray.length; i++){
+    sum += salArray[i];
+  }
+  const avg = sum / salArray.length
+  console.log(`The Average Employee salary is ${avg}`)
+  return avg;
 }
 
 // Select a random employee
